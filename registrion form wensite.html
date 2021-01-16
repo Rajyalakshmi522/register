@@ -1,0 +1,195 @@
+<html>
+    <head>
+        
+        <style>
+            body{
+                text-align:center;
+                color:blue;
+                font-family:Georgia;
+                font-size:18px;
+                background-image:url("red rose.jpg");
+                background-repeat: no-repeat;
+                background-size:500px 500px;
+            
+            }
+            table{
+
+            }
+            table{
+                width:350px;
+                margin:20px auto;
+                font-family: algerian;
+            }
+            input[type="text"],[type="password"],[type="date"],[type="email"],[type="number"]{
+                background-color: pink;
+                height:45px;
+                text-align:center;
+                margin-top:5px;
+                font-size:20px;
+                padding:5px;
+                border-radius: 8px;
+
+            }
+            input[type="radio"],[type="checkbox"]{
+                width: 5%;
+                height:20px;
+                font: size:20px;
+                margin-top:5px;
+                padding:5px;
+            }
+            input[type="checkbox"]{
+                width: 2%;
+                height:20px;
+                font: size:20px;
+                margin-top:5px;
+                padding:5px;
+            }
+            input:hover{
+                background-color:green;
+                color:rgb(70, 8, 21);
+            }
+            select{
+                background-color:pink;
+                border:2px solid green;
+                outline:none;
+            }
+            
+            select:focus{
+                background-color:aqua;
+                border:2px solid green;
+                outline:none;
+            
+            }
+            select:hover{
+                background-color:rgb(116, 16, 37);
+                color:blue;
+            }
+            input:focus{
+                background-color: aqua;
+                color:red;
+                outline:none;
+
+            }
+            textarea{
+                background-color:pink;
+                color:blue;
+            }
+            .s{
+                border-radius: 50%;
+            }
+            .s:hover{
+                background-color: aqua;
+            }
+            h1{
+                color:aqua;
+                text-shadow:2px 2px 5px rgb(109, 16, 73);
+            }
+            .text{
+                background-image: url("user.png");
+                background-size:30px 30px;
+                background-position: 5px 5px;
+                background-repeat: no-repeat;
+            }
+            .pwd{
+                background-image: url("key.png");
+                background-position: 5px 5px;
+                background-repeat: no-repeat;
+                background-size:30px 30px;
+            
+            }
+        
+        
+            
+
+
+            </style>
+         <script>
+            function validate(){
+                var sname=document.forms["myform"]["name"].value;
+                var password=document.forms["myform"]["pass1"].value;
+                var cpassword=document.forms["myform"]["pass2"].value;
+                var x=document.myform.mail.value;
+                var filter=/[a-zA-Z]{6,12}[@][a-z]{3,15}[.][a-z]{2,6}$/;
+                var mobile=document.myform.num.value;
+                var curdate=new Date(); 
+                var dob=new Date(document.myform.date.value);
+                if(sname=="null" || sname==""){
+                    alert("please provide currect name");
+                    return false;
+                }
+                else if(password.length<6){
+                    alert("pwd must contain 6 characters");
+                    return false; 
+                }
+                else if(password != cpassword){
+                    alert("password must match with repassword");
+                    return false;
+                }
+                else if(!filter.test(x)){
+                    alert("enter currect mail");
+                    return false;
+                }
+                
+                else if(mobile.length != 10){
+                    alert("number is not currect");
+                    return false;
+                }
+                else if(dob > curdate){
+                   alert("dob is not currect");
+                   return false;
+                }
+                else{
+                    return true;
+                }
+            
+
+            
+            }
+            
+               
+            
+                
+            
+
+        </script>
+    
+             
+    </head>
+    <body >
+        <form name="myform" action="html.html" method="POST" target="_blank" onsubmit="return validate()">
+            <table>
+                <h1>REGISTRATION FORM</h1></br></br>
+            
+                NAME:<input type="text" class="text" required autofocus size="30" name="name" placeholder="enter username"/><br/><br/>
+                PASSWORD:<input type="password" class="pwd" size="30" name="pass1" placeholder="enter password"/><br/><br/>
+                REPASSWORD:<input type="password" class="pwd" size="30" name="pass2" placeholder="enter password"/><br/><br/>
+                
+                EMAIL:<input type="email" size="30" class="email" name="mail" placeholder="emter emailid"/><br/><br/>
+                NUMBER:<input type="number"   class="number"  size="30" name="num" placeholder="enter ph number"/><br/><br/>
+                DOB:<input type="date" required size="30" name="date" placeholder="enter dob"/><br/><br/>
+                HOBBIES:<input type="checkbox" name="hobbies" checked/>chatting
+                   <input type="checkbox" name="hobbies" />browsing
+                   <input type="checkbox" name="hobbies"/>gaming <br/><br/>
+                GENDER:<input type="radio" name="GENDER" />Male
+                  <input type="radio" name="GENDER"/>Female<br/><br/>
+                Upload Resume:<input type="file"/><br/><br/>
+                Upload image:<input type="file"/><br/><br/>
+                WRITE 100 Characters:<br/>
+                                <textarea rows="5" cols="50"></textarea> <br/><br/><br/>
+                Languages:<select name="menu" >
+                    <option>JAVA</option>
+                    <option>HTML</option>
+                    <option>CSS</option>
+                </select> <br/><br/> 
+                <input type="submit" class="s" value="registration"/><br/><br/>
+                <input type="reset" value="clear"/><br/><br/>
+                <input type="search"/><br/><br/>
+                <input type="button" value="ok"></button><br/><br/>
+            </table>
+            <button type="button" size="30" onclick="validate()">button</button>
+ 
+
+        </form>
+        
+    </body>
+</html>
